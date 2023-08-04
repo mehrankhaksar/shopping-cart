@@ -23,7 +23,7 @@ function DetailsPage(props) {
           <h3 className="text-lg font-bold text-blue-500">{title}</h3>
           <Disclosure>
             {({ open }) => (
-              <div className="py-5 px-2.5 rounded-md shadow-md">
+              <div className="grid gap-2 py-5 px-2.5 rounded-md shadow-md">
                 <Disclosure.Button className="w-full flex justify-between items-center">
                   <h4 className="font-semibold">Extra Information</h4>
                   <IoIosArrowDown
@@ -31,7 +31,7 @@ function DetailsPage(props) {
                     className={`${open && "transform rotate-180"}`}
                   />
                 </Disclosure.Button>
-                <Disclosure.Panel className="text-gray-500 text-justify mt-2">
+                <Disclosure.Panel className="text-gray-500 text-justify break-all">
                   {description}
                 </Disclosure.Panel>
               </div>
