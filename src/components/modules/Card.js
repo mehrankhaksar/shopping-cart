@@ -6,9 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   addToCart,
   removeProduct,
-  increaseProduct,
-  decreaseProduct,
-} from "../../redux/cart/cartActions";
+  incrementProduct,
+  decrementProduct,
+} from "../../features/cart/cartSlice";
 
 import {
   shortenTitle,
@@ -40,19 +40,25 @@ function Card({ cart, product }) {
       </span>
       <div className="flex justify-between items-center">
         <Link to={`/products/${id}`}>
-          <Button styles="font-medium text-blue-500" text="Details" />
+          <Button
+            styles="font-medium text-blue-500"
+            type="button"
+            text="Details"
+          />
         </Link>
         {isInCart(selectedProducts, id) ? (
           <div className="grid grid-cols-3 justify-items-center items-center gap-1">
             {quantityCount(selectedProducts, id) > 1 ? (
               <Button
-                styles="cart-buttons"
-                onClick={() => dispatch(decreaseProduct(id))}
+                styles="card-button"
+                type="button"
+                onClick={() => dispatch(decrementProduct(id))}
                 text="-"
               />
             ) : (
               <Button
-                styles="cart-buttons text-base"
+                styles="card-button text-base"
+                type="button"
                 onClick={() => dispatch(removeProduct(id))}
                 text={<BiTrash size={18} />}
               />
@@ -61,14 +67,16 @@ function Card({ cart, product }) {
               {quantityCount(selectedProducts, id)}
             </span>
             <Button
-              styles="cart-buttons"
-              onClick={() => dispatch(increaseProduct(id))}
+              styles="card-button"
+              type="button"
+              onClick={() => dispatch(incrementProduct(id))}
               text="+"
             />
           </div>
         ) : (
           <Button
-            styles="font-semibold text-white bg-blue-500 py-1.5 px-3 rounded lg:text-sm"
+            styles="text-sm font-semibold text-white bg-blue-500 py-1.5 px-3 rounded transition-colors hover:bg-blue-600"
+            type="button"
             onClick={() => dispatch(addToCart(product))}
             text="Add to Cart"
           />

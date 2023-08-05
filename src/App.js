@@ -1,24 +1,23 @@
 import { Provider } from "react-redux";
+import store from "./app/store";
 
-import store from "./redux/store";
-
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
-import CartPage from "./components/templates/CartPage";
-import DetailsPage from "./components/templates/DetailsPage";
 import StorePage from "./components/templates/StorePage";
+import DetailsPage from "./components/templates/DetailsPage";
+import CartPage from "./components/templates/CartPage";
 
 function App() {
   return (
     <Provider store={store}>
       <Layout>
-        <Switch>
-          <Route path="/cart" component={CartPage} />
-          <Route path="/products/:id" component={DetailsPage} />
-          <Route path="/products" component={StorePage} />
-          <Redirect to="/products" />
-        </Switch>
+        <Routes>
+          <Route path="/*" element={<Navigate to="/products" />} />
+          <Route path="/products" element={<StorePage />} />
+          <Route path="/products/:id" element={<DetailsPage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
       </Layout>
     </Provider>
   );

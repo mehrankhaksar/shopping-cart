@@ -9,7 +9,11 @@
     @apply font-Quicksand;
   }
 
-  .cart-buttons {
-    @apply w-8 h-8 flex justify-center items-center text-xl font-semibold text-white bg-blue-500 rounded-full;
+  .card-button {
+    @apply w-8 h-8 flex justify-center items-center text-xl font-semibold text-white bg-blue-500 rounded-full transition-colors hover:bg-blue-600;
+  }
+
+  .cart-button {
+    @apply font-semibold text-white py-1.5 rounded transition-colors;
   }
 }

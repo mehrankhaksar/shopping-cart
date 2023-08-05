@@ -1,8 +1,7 @@
 import React from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-
-import { fetchAPI } from "../../redux/products/productsActions";
+import { fetchAPI } from "../../features/products/productsSlice";
 
 import Loading from "../elements/Loading";
 import Card from "../modules/Card";

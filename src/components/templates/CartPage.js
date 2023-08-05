@@ -3,11 +3,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-import { clearAll, checkout } from "../../redux/cart/cartActions";
+import { clearAll, checkout } from "../../features/cart/cartSlice";
 
 import { IoCartOutline } from "react-icons/io5";
 
 import Card from "../modules/Card";
+import Button from "../elements/Button";
 
 function CartPage() {
   const { selectedProducts, totalProducts, totalPrice } = useSelector(
@@ -35,9 +36,11 @@ function CartPage() {
               <div className="grid gap-2">
                 <h1 className="font-bold">Your Cart is Currently Empty!</h1>
                 <Link to="/products">
-                  <button className="w-full font-semibold text-white bg-blue-500 py-1.5 rounded">
-                    Back to Store
-                  </button>
+                  <Button
+                    styles="w-full font-semibold text-white bg-blue-500 py-1.5 rounded"
+                    type="button"
+                    text="Back to Store"
+                  />
                 </Link>
               </div>
             </div>
@@ -53,18 +56,18 @@ function CartPage() {
             <span className="font-medium text-black">{totalPrice}$</span>
           </div>
           <div className="grid gap-2 lg:grid-cols-2">
-            <button
-              className="font-semibold text-white bg-green-500 py-1.5 rounded"
+            <Button
+              styles="cart-button bg-green-500 hover:bg-green-600"
+              type="button"
               onClick={() => dispatch(clearAll())}
-            >
-              Clear All
-            </button>
-            <button
-              className="font-semibold text-white bg-blue-500 py-1.5 rounded"
+              text="Clear All"
+            />
+            <Button
+              styles="cart-button bg-blue-500 hover:bg-blue-600"
+              type="button"
               onClick={() => dispatch(checkout())}
-            >
-              Checkout
-            </button>
+              text="Checkout"
+            />
           </div>
         </div>
       </div>

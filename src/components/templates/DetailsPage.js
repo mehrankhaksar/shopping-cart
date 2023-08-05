@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
@@ -8,8 +8,10 @@ import { Disclosure } from "@headlessui/react";
 
 import { IoIosArrowDown } from "react-icons/io";
 
-function DetailsPage(props) {
-  const { id } = props.match.params;
+import Button from "../elements/Button";
+
+function DetailsPage() {
+  const { id } = useParams();
 
   const { products } = useSelector((state) => state.productsState);
 
@@ -45,9 +47,11 @@ function DetailsPage(props) {
               {price}$
             </span>
             <Link to="/products">
-              <button className="w-full font-semibold text-white bg-blue-500 py-1.5 rounded">
-                Back to Store
-              </button>
+              <Button
+                styles="w-full font-semibold text-white bg-blue-500 py-1.5 rounded transition-colors hover:bg-blue-600"
+                type="button"
+                text="Back to Store"
+              />
             </Link>
           </div>
         </div>
