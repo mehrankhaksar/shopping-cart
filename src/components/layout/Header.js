@@ -10,7 +10,7 @@ function Header() {
   const { totalProducts } = useSelector((state) => state.cartState);
 
   return (
-    <nav className="h-20 grid relative bg-white px-5 shadow-md z-50">
+    <nav className="w-full relative bg-white p-5 shadow-md z-50">
       <div className="max-w-7xl w-full flex justify-between items-center mx-auto">
         <h2 className="text-2xl font-bold text-blue-500">
           <Link to="/products">Store</Link>

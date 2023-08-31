@@ -19,9 +19,9 @@ function DetailsPage() {
 
   return (
     <section>
-      <div className="max-w-sm grid gap-5 bg-white mx-auto p-5 shadow-lg rounded-lg sm:max-w-full sm:grid-cols-2 sm:items-start sm:gap-10 md:max-w-4xl">
-        <img src={image} alt={title} />
-        <div className="grid gap-3 bg-white p-2.5 rounded-md shadow-md">
+      <div className="max-w-sm grid gap-5 bg-white mx-auto p-5 shadow-lg rounded-lg sm:max-w-full sm:grid-cols-5 sm:items-start sm:gap-10 md:max-w-4xl">
+        <img className="sm:col-span-2" src={image} alt={title} />
+        <div className="grid gap-3 bg-white p-2.5 rounded-md shadow-md sm:col-span-3">
           <h3 className="text-lg font-bold text-blue-500">{title}</h3>
           <Disclosure>
             {({ open }) => (

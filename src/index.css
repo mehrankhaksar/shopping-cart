@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 @layer components {
-  * {
-    @apply font-Quicksand;
+  body {
+    @apply bg-[#f7f7f7];
   }
 
   .card-button {
