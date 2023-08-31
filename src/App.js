@@ -3,7 +3,7 @@ import store from "./app/store";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Layout from "./components/layout/Layout";
+import Layout from "./components/layout";
 import StorePage from "./components/templates/StorePage";
 import DetailsPage from "./components/templates/DetailsPage";
 import CartPage from "./components/templates/CartPage";

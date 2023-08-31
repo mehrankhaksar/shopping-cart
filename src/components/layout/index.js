@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "./Header";
 
-function Layout({ children }) {
+function Layout({ children }) { 
   return (
     <div className="w-full min-h-screen flex flex-col items-center font-Quicksand overflow-hidden">
       <Header />
