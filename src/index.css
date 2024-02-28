@@ -10,7 +10,7 @@
   }
 
   .card-button {
-    @apply w-8 h-8 flex justify-center items-center text-xl font-semibold text-white bg-blue-500 rounded-full transition-colors hover:bg-blue-600;
+    @apply w-8 h-8 inline-flex justify-center items-center text-xl font-semibold text-white bg-blue-500 rounded-full transition-colors hover:bg-blue-600;
   }
 
   .cart-button {

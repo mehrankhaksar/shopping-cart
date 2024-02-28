@@ -13,10 +13,10 @@ function App() {
     <Provider store={store}>
       <Layout>
         <Routes>
-          <Route path="/*" element={<Navigate to="/products" />} />
           <Route path="/products" element={<StorePage />} />
           <Route path="/products/:id" element={<DetailsPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/*" element={<Navigate to="/products" />} />
         </Routes>
       </Layout>
     </Provider>

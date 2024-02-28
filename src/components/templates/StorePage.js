@@ -6,8 +6,10 @@ import { fetchAPI } from "../../features/products/productsSlice";
 import Loading from "../elements/Loading";
 import Card from "../modules/Card";
 
-function StorePage() {
-  const { loading, products } = useSelector((state) => state.productsState);
+const StorePage = () => {
+  const { loading, error, products } = useSelector(
+    (state) => state.productsState
+  );
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -16,9 +18,17 @@ function StorePage() {
 
   if (loading) {
     return (
-      <div className="w-full h-full absolute top-0 left-0 grid justify-items-center content-center">
+      <div className="w-full h-full absolute top-0 left-0 flex justify-center items-center">
         <Loading />
       </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <h1 className="w-full h-full absolute top-0 left-0 flex justify-center items-center text-4xl font-bold">
+        Whoops, something went wrong.
+      </h1>
     );
   }
 
@@ -33,6 +43,6 @@ function StorePage() {
       </ul>
     </section>
   );
-}
+};
 
 export default StorePage;

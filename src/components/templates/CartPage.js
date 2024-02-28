@@ -10,7 +10,7 @@ import { IoCartOutline } from "react-icons/io5";
 import Card from "../modules/Card";
 import Button from "../elements/Button";
 
-function CartPage() {
+const CartPage = () => {
   const { selectedProducts, totalProducts, totalPrice } = useSelector(
     (state) => state.cartState
   );
@@ -33,20 +33,20 @@ function CartPage() {
           ) : (
             <div className="grid justify-items-center content-center">
               <IoCartOutline className="text-[250px] text-blue-500" />
-              <div className="grid gap-2">
-                <h1 className="font-bold">Your Cart is Currently Empty!</h1>
+              <div>
+                <h1 className="font-bold mb-2.5">
+                  Your Cart is Currently Empty!
+                </h1>
                 <Link to="/products">
-                  <Button
-                    styles="w-full font-semibold text-white bg-blue-500 py-1.5 rounded"
-                    type="button"
-                    text="Back to Store"
-                  />
+                  <Button styles="w-full font-semibold text-white bg-blue-500 py-1.5 rounded">
+                    Back to Store
+                  </Button>
                 </Link>
               </div>
             </div>
           )}
         </ul>
-        <div className="grid gap-5 bg-white p-5 rounded-md shadow-md">
+        <div className="space-y-5 bg-white p-5 rounded-md shadow-md">
           <div className="font-semibold text-blue-500">
             Total Products:{" "}
             <span className="font-medium text-black">{totalProducts}</span>
@@ -55,24 +55,24 @@ function CartPage() {
             Total Price:{" "}
             <span className="font-medium text-black">{totalPrice}$</span>
           </div>
-          <div className="grid gap-2 lg:grid-cols-2">
+          <div className="grid gap-2.5 lg:grid-cols-2">
+            <Button
+              styles="cart-button bg-red-500 hover:bg-red-600"
+              onClick={() => dispatch(clearAll())}
+            >
+              Clear All
+            </Button>
             <Button
               styles="cart-button bg-green-500 hover:bg-green-600"
-              type="button"
-              onClick={() => dispatch(clearAll())}
-              text="Clear All"
-            />
-            <Button
-              styles="cart-button bg-blue-500 hover:bg-blue-600"
-              type="button"
               onClick={() => dispatch(checkout())}
-              text="Checkout"
-            />
+            >
+              Checkout
+            </Button>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default CartPage;

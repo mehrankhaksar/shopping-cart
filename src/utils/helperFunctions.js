@@ -1,6 +1,5 @@
 const shortenTitle = (title) => {
   const splittedTitle = title.split(" ");
-
   if (splittedTitle[1] === "-") {
     return `${splittedTitle[0]} ${splittedTitle[1]} ${splittedTitle[2]}...`;
   } else {

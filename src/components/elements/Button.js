@@ -1,11 +1,15 @@
 import React from "react";
 
-function Button({ styles, type, onClick, text }) {
+const Button = ({ styles, type = "button", onClick, children }) => {
   return (
-    <button className={styles} type={type} onClick={onClick}>
-      {text}
+    <button
+      className={`transition-colors ${styles}`}
+      type={type}
+      onClick={onClick}
+    >
+      {children}
     </button>
   );
-}
+};
 
 export default Button;

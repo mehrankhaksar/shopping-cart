@@ -23,14 +23,8 @@ const cartSlice = createSlice({
         });
       }
 
-      state.totalProducts = sumProducts(
-        state.selectedProducts,
-        action.payload.id
-      ).totalProducts;
-      state.totalPrice = sumProducts(
-        state.selectedProducts,
-        action.payload.id
-      ).totalPrice;
+      state.totalProducts = sumProducts(state.selectedProducts).totalProducts;
+      state.totalPrice = sumProducts(state.selectedProducts).totalPrice;
     },
     removeProduct: (state, action) => {
       const newSelectedProducts = state.selectedProducts.filter(
@@ -38,14 +32,9 @@ const cartSlice = createSlice({
       );
 
       state.selectedProducts = [...newSelectedProducts];
-      state.totalProducts = sumProducts(
-        newSelectedProducts,
-        action.payload
-      ).totalProducts;
-      state.totalPrice = sumProducts(
-        newSelectedProducts,
-        action.payload
-      ).totalPrice;
+
+      state.totalProducts = sumProducts(newSelectedProducts).totalProducts;
+      state.totalPrice = sumProducts(newSelectedProducts).totalPrice;
     },
     incrementProduct: (state, action) => {
       const incrementProductIndex = state.selectedProducts.findIndex(
@@ -54,14 +43,8 @@ const cartSlice = createSlice({
 
       state.selectedProducts[incrementProductIndex].quantity++;
 
-      state.totalProducts = sumProducts(
-        state.selectedProducts,
-        action.payload
-      ).totalProducts;
-      state.totalPrice = sumProducts(
-        state.selectedProducts,
-        action.payload
-      ).totalPrice;
+      state.totalProducts = sumProducts(state.selectedProducts).totalProducts;
+      state.totalPrice = sumProducts(state.selectedProducts).totalPrice;
     },
     decrementProduct: (state, action) => {
       const decrementProductIndex = state.selectedProducts.findIndex(
@@ -70,14 +53,8 @@ const cartSlice = createSlice({
 
       state.selectedProducts[decrementProductIndex].quantity--;
 
-      state.totalProducts = sumProducts(
-        state.selectedProducts,
-        action.payload
-      ).totalProducts;
-      state.totalPrice = sumProducts(
-        state.selectedProducts,
-        action.payload
-      ).totalPrice;
+      state.totalProducts = sumProducts(state.selectedProducts).totalProducts;
+      state.totalPrice = sumProducts(state.selectedProducts).totalPrice;
     },
     clearAll: (state) => {
       state.selectedProducts = [];
