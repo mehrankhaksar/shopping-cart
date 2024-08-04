@@ -9,9 +9,9 @@ const initialState = {
 };
 
 export const fetchAPI = createAsyncThunk("products/fetchAPI", () => {
-  return axios(`${process.env.REACT_APP_BASE_URL}/data`).then(
-    (response) => response.data
-  );
+  return axios
+    .get(`${process.env.REACT_APP_BASE_URL}/data`)
+    .then((response) => response.data);
 });
 
 const productsSlice = createSlice({
